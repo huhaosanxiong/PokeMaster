@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		E161888C24D27F5B00E6340D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E161888B24D27F5B00E6340D /* Assets.xcassets */; };
 		E161888F24D27F5B00E6340D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E161888E24D27F5B00E6340D /* Preview Assets.xcassets */; };
 		E161889224D27F5B00E6340D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E161889024D27F5B00E6340D /* LaunchScreen.storyboard */; };
+		E161889C24D2961A00E6340D /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E161889B24D2961A00E6340D /* KingfisherSwiftUI */; };
+		E161889E24D2961A00E6340D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E161889D24D2961A00E6340D /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E161889E24D2961A00E6340D /* Kingfisher in Frameworks */,
+				E161889C24D2961A00E6340D /* KingfisherSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +95,10 @@
 			dependencies = (
 			);
 			name = PokeMaster;
+			packageProductDependencies = (
+				E161889B24D2961A00E6340D /* KingfisherSwiftUI */,
+				E161889D24D2961A00E6340D /* Kingfisher */,
+			);
 			productName = PokeMaster;
 			productReference = E161888224D27F5800E6340D /* PokeMaster.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +127,9 @@
 				Base,
 			);
 			mainGroup = E161887924D27F5800E6340D;
+			packageReferences = (
+				E161889A24D2961A00E6340D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = E161888324D27F5800E6340D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,6 +297,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeMaster/Preview Content\"";
+				DEVELOPMENT_TEAM = XJHRVPW773;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PokeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +317,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"PokeMaster/Preview Content\"";
+				DEVELOPMENT_TEAM = XJHRVPW773;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PokeMaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -340,6 +353,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E161889A24D2961A00E6340D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/huhsx/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E161889B24D2961A00E6340D /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E161889A24D2961A00E6340D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		E161889D24D2961A00E6340D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E161889A24D2961A00E6340D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E161887A24D27F5800E6340D /* Project object */;
 }
