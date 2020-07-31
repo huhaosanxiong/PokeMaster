@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+/*
 class Settings: ObservableObject {
     
     enum AccountBehavior: CaseIterable {
@@ -28,26 +29,6 @@ class Settings: ObservableObject {
     
     
 }
+ */
 
-extension Settings.Sorting {
-    
-    var text: String {
-        
-        switch self {
-        case .id: return "ID"
-        case .name: return "名字"
-        case .color: return "颜色"
-        case .favorite: return "最爱"
-        }
-    }
-}
 
-extension Settings.AccountBehavior {
-    
-    var text: String {
-        switch self {
-        case .login: return "登录"
-        case .register: return "注册"
-        }
-    }
-}
