@@ -26,29 +26,50 @@ struct SettingView: View {
             optionView
             actionView
         }
+        .alert(item: settingBinding.loginError) { error in
+            Alert(title: Text(error.localizedDescription))
+        }
     }
     
     var accountSection: some View {
         
         Section(header: Text("账户")) {
             
-            Picker(selection: settingBinding.accountBehavior, label: Text("")) {
-                
-                ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self) {
-                    Text($0.text)
+            if settings.loginUser == nil {
+                // 未登录
+                Picker(selection: settingBinding.accountBehavior, label: Text("")) {
+                    
+                    ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self) {
+                        Text($0.text)
+                    }
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            
-            TextField("电子邮箱", text: settingBinding.email)
-            SecureField("密码", text: settingBinding.password)
-            
-            if settings.accountBehavior == .register {
-                SecureField("确认密码", text: settingBinding.verifyPassword)
-            }
-            
-            Button(settings.accountBehavior.text) {
-                print("登录/注册")
+                .pickerStyle(SegmentedPickerStyle())
+                
+                TextField("电子邮箱", text: settingBinding.email)
+                SecureField("密码", text: settingBinding.password)
+                
+                if settings.accountBehavior == .register {
+                    SecureField("确认密码", text: settingBinding.verifyPassword)
+                }
+                
+                if settings.loginRequesting {
+                    Text("登录中...")
+                }else {
+                    Button(settings.accountBehavior.text) {
+                        self.store.dispatch(
+                            .login(
+                                email: self.settings.email,
+                                password: self.settings.password
+                            )
+                        )
+                    }
+                }
+            }else {
+                // 已登录
+                Text(settings.loginUser!.email)
+                Button("注销") {
+                    print("注销")
+                }
             }
         }
     }

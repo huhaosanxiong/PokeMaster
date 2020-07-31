@@ -33,6 +33,10 @@ extension AppState {
         var showEnglishName = true
         var sorting = Sorting.id
         var showFavoriteOnly = false
+        
+        var loginUser: User?
+        var loginRequesting = false
+        var loginError: AppError?
     }
     
     

@@ -98,6 +98,9 @@
 		E161894B24D40FA600E6340D /* MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161894A24D40FA600E6340D /* MainTab.swift */; };
 		E161894F24D4121500E6340D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161894E24D4121500E6340D /* AppState.swift */; };
 		E161895124D4134400E6340D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895024D4134400E6340D /* Store.swift */; };
+		E161895324D41A6C00E6340D /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895224D41A6C00E6340D /* AppAction.swift */; };
+		E161895624D41EE800E6340D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895524D41EE800E6340D /* LoginRequest.swift */; };
+		E161895824D4221E00E6340D /* AppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895724D4221E00E6340D /* AppCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +195,9 @@
 		E161894A24D40FA600E6340D /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		E161894E24D4121500E6340D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E161895024D4134400E6340D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		E161895224D41A6C00E6340D /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		E161895524D41EE800E6340D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		E161895724D4221E00E6340D /* AppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,6 +424,7 @@
 		E161894C24D411EF00E6340D /* State */ = {
 			isa = PBXGroup;
 			children = (
+				E161895424D41ECF00E6340D /* Network */,
 				E161894D24D411F500E6340D /* DataFlow */,
 			);
 			path = State;
@@ -428,8 +435,18 @@
 			children = (
 				E161894E24D4121500E6340D /* AppState.swift */,
 				E161895024D4134400E6340D /* Store.swift */,
+				E161895224D41A6C00E6340D /* AppAction.swift */,
+				E161895724D4221E00E6340D /* AppCommand.swift */,
 			);
 			path = DataFlow;
+			sourceTree = "<group>";
+		};
+		E161895424D41ECF00E6340D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E161895524D41EE800E6340D /* LoginRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -573,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E16188A024D29C6A00E6340D /* PokemonInfoRow.swift in Sources */,
+				E161895624D41EE800E6340D /* LoginRequest.swift in Sources */,
 				E161894624D3B2E000E6340D /* SettingRootView.swift in Sources */,
 				E161893124D29E7800E6340D /* Helpers.swift in Sources */,
 				E161895124D4134400E6340D /* Store.swift in Sources */,
@@ -584,11 +602,13 @@
 				E161893C24D2B85800E6340D /* PokemonInfoPanel.swift in Sources */,
 				E161888824D27F5800E6340D /* SceneDelegate.swift in Sources */,
 				E161894B24D40FA600E6340D /* MainTab.swift in Sources */,
+				E161895824D4221E00E6340D /* AppCommand.swift in Sources */,
 				E161888A24D27F5800E6340D /* ContentView.swift in Sources */,
 				E161894424D3ADA300E6340D /* SettingView.swift in Sources */,
 				E161893824D29E7800E6340D /* PokemonSpecies.swift in Sources */,
 				E161893424D29E7800E6340D /* User.swift in Sources */,
 				E161893724D29E7800E6340D /* Pokemon.swift in Sources */,
+				E161895324D41A6C00E6340D /* AppAction.swift in Sources */,
 				E161892F24D29E7800E6340D /* FileHelper.swift in Sources */,
 				E161894F24D4121500E6340D /* AppState.swift in Sources */,
 				E161893E24D3A76D00E6340D /* BlurView.swift in Sources */,
