@@ -30,11 +30,15 @@ extension AppState {
         var password = ""
         var verifyPassword = ""
         
-        var showEnglishName = true
+        @UserDefaultStorage(key: "showEnglishName")
+        var showEnglishName: Bool
+        
         var sorting = Sorting.id
         var showFavoriteOnly = false
         
+        @FileStorage(directory: .documentDirectory, fileName: "user.json")
         var loginUser: User?
+        
         var loginRequesting = false
         var loginError: AppError?
     }

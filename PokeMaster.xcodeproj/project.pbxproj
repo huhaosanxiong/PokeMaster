@@ -101,6 +101,8 @@
 		E161895324D41A6C00E6340D /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895224D41A6C00E6340D /* AppAction.swift */; };
 		E161895624D41EE800E6340D /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895524D41EE800E6340D /* LoginRequest.swift */; };
 		E161895824D4221E00E6340D /* AppCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895724D4221E00E6340D /* AppCommand.swift */; };
+		E161895B24D7A69700E6340D /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895A24D7A69700E6340D /* FileStorage.swift */; };
+		E161895D24D7AC3E00E6340D /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E161895C24D7AC3E00E6340D /* UserDefaultStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,6 +200,8 @@
 		E161895224D41A6C00E6340D /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
 		E161895524D41EE800E6340D /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		E161895724D4221E00E6340D /* AppCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommand.swift; sourceTree = "<group>"; };
+		E161895A24D7A69700E6340D /* FileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStorage.swift; sourceTree = "<group>"; };
+		E161895C24D7AC3E00E6340D /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +428,7 @@
 		E161894C24D411EF00E6340D /* State */ = {
 			isa = PBXGroup;
 			children = (
+				E161895924D7A68000E6340D /* FileIO */,
 				E161895424D41ECF00E6340D /* Network */,
 				E161894D24D411F500E6340D /* DataFlow */,
 			);
@@ -447,6 +452,15 @@
 				E161895524D41EE800E6340D /* LoginRequest.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E161895924D7A68000E6340D /* FileIO */ = {
+			isa = PBXGroup;
+			children = (
+				E161895A24D7A69700E6340D /* FileStorage.swift */,
+				E161895C24D7AC3E00E6340D /* UserDefaultStorage.swift */,
+			);
+			path = FileIO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -594,6 +608,7 @@
 				E161894624D3B2E000E6340D /* SettingRootView.swift in Sources */,
 				E161893124D29E7800E6340D /* Helpers.swift in Sources */,
 				E161895124D4134400E6340D /* Store.swift in Sources */,
+				E161895B24D7A69700E6340D /* FileStorage.swift in Sources */,
 				E161893024D29E7800E6340D /* Sample.swift in Sources */,
 				E161893224D29E7800E6340D /* AbilityViewModel.swift in Sources */,
 				E161888624D27F5800E6340D /* AppDelegate.swift in Sources */,
@@ -605,6 +620,7 @@
 				E161895824D4221E00E6340D /* AppCommand.swift in Sources */,
 				E161888A24D27F5800E6340D /* ContentView.swift in Sources */,
 				E161894424D3ADA300E6340D /* SettingView.swift in Sources */,
+				E161895D24D7AC3E00E6340D /* UserDefaultStorage.swift in Sources */,
 				E161893824D29E7800E6340D /* PokemonSpecies.swift in Sources */,
 				E161893424D29E7800E6340D /* User.swift in Sources */,
 				E161893724D29E7800E6340D /* Pokemon.swift in Sources */,
