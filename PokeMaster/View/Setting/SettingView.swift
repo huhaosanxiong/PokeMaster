@@ -77,6 +77,11 @@ struct SettingView: View {
     var optionView: some View {
         
         Section(header: Text("选项")) {
+            Picker(selection: settingBinding.appAppearance, label: Text("外观模式")) {
+                ForEach(AppState.Settings.AppAppearance.allCases, id: \.self) {
+                    Text($0.rawValue)
+                }
+            }
             Toggle(isOn: settingBinding.showEnglishName) {
                 Text("显示英文名")
             }

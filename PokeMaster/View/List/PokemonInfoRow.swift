@@ -10,9 +10,15 @@ import SwiftUI
 
 struct PokemonInfoRow: View {
     
+    @EnvironmentObject var store: Store
+    
     let model: PokemonViewModel
     
     let expanded: Bool
+    
+    var isFavorite: Bool {
+        store.appState.settings.loginUser?.isFavoritePokemon(id: model.id) ?? false
+    }
     
     var body: some View {
         
@@ -40,15 +46,21 @@ struct PokemonInfoRow: View {
             
             HStack(spacing: expanded ? 20 : -30) {
                 Spacer()
-                Button(action: {}) {
-                    Image(systemName: "star")
+                Button(action: {
+                    self.store.dispatch(.toggleFavorite(index: self.model.id))
+                }) {
+                    Image(systemName: isFavorite ? "star.fill" : "star")
                         .modifier(ToolButtonModifier())
                 }
-                Button(action: {}) {
+                Button(action: {
+                    
+                }) {
                     Image(systemName: "chart.bar")
                         .modifier(ToolButtonModifier())
                 }
-                Button(action: {}) {
+                Button(action: {
+                    self.store.dispatch(.togglePanelPresenting(index: self.model.id))
+                }) {
                     Image(systemName: "info.circle")
                         .modifier(ToolButtonModifier())
                 }
@@ -68,7 +80,7 @@ struct PokemonInfoRow: View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(
                         LinearGradient(
-                            gradient: Gradient(colors: [.white, model.color]),
+                            gradient: Gradient(colors: [Color("background-primary"), model.color]),
                             startPoint: .leading,
                             endPoint: .trailing
                         )

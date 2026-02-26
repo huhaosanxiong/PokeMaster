@@ -10,6 +10,8 @@ import SwiftUI
 
 struct PokemonInfoPanel: View {
     
+    @EnvironmentObject var store: Store
+    
     let model: PokemonViewModel
     
     var abilities: [AbilityViewModel] {
@@ -27,7 +29,7 @@ struct PokemonInfoPanel: View {
         
         Text(model.descriptionText)
             .font(.callout)
-        .foregroundColor(Color(hex: 0x666666))
+        .foregroundColor(Color("text-secondary"))
         .fixedSize(horizontal: false, vertical: true)
     }
     
@@ -35,7 +37,13 @@ struct PokemonInfoPanel: View {
     var body: some View {
         
         VStack(spacing: 20) {
-            topIndicator
+            
+            Button(action: {
+                self.store.dispatch(.togglePanelPresenting(index: nil))
+            }) {
+                topIndicator
+            }
+            
             Header(model: model)
             pokemonDescription
             Divider()
@@ -79,7 +87,7 @@ extension PokemonInfoPanel {
                 Text(model.genus)
                     .font(.system(size: 13))
                     .fontWeight(.bold)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color("text-secondary"))
             }
             
         }
@@ -98,7 +106,7 @@ extension PokemonInfoPanel {
                 HStack {
                     Text("身高")
                         .font(.system(size: 11))
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("text-secondary"))
                     Text(model.height)
                         .font(.system(size: 11))
                         .foregroundColor(model.color)
@@ -106,7 +114,7 @@ extension PokemonInfoPanel {
                 HStack {
                     Text("体重")
                         .font(.system(size: 11))
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color("text-secondary"))
                     Text(model.weight)
                         .font(.system(size: 11))
                         .foregroundColor(model.color)
@@ -172,7 +180,7 @@ extension PokemonInfoPanel {
                             .foregroundColor(self.model.color)
                         Text(ability.descriptionText)
                             .font(.footnote)
-                        .foregroundColor(Color(hex: 0xAAAAAA))
+                        .foregroundColor(Color("text-tertiary"))
                         .fixedSize(horizontal: false, vertical: true)
                     }
                 }

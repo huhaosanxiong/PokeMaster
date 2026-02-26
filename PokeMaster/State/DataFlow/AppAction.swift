@@ -12,4 +12,8 @@ enum AppAction {
     case login(email: String, password: String)
     case accountBehaviorDone(result: Result<User, AppError>)
     case logout
+    
+    case toggleFavorite(index: Int)
+    case togglePanelPresenting(index: Int?)
+    case toggleListSelection(index: Int?)
 }

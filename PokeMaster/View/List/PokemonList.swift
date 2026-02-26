@@ -10,26 +10,55 @@ import SwiftUI
 
 struct PokemonList: View {
     
-    @State var expandingIndex: Int?
-    @State var searchText: String = ""
+    @EnvironmentObject var store: Store
+    
+    var pokemonListBinding: Binding<AppState.PokemonList> {
+        $store.appState.pokemonList
+    }
+    
+    var pokemonList: AppState.PokemonList {
+        store.appState.pokemonList
+    }
     
     var body: some View {
         
         ScrollView {
-            TextField("搜索", text: $searchText)
+            TextField("搜索", text: pokemonListBinding.searchText)
                 .frame(height: 40)
                 .padding(.horizontal, 25)
-            ForEach(PokemonViewModel.all) { pokemon in
-                PokemonInfoRow(model: pokemon, expanded: self.expandingIndex == pokemon.id)
-                    .onTapGesture {
-                        withAnimation(
-                            .spring(response: 0.55, dampingFraction: 0.425, blendDuration: 0)
-                        ){
-                            self.expandingIndex = self.expandingIndex == pokemon.id ? nil : pokemon.id
-                        }
+            ForEach(
+                pokemonList.filteredAndSorted(
+                    showFavoriteOnly: store.appState.settings.showFavoriteOnly,
+                    sorting: store.appState.settings.sorting,
+                    loginUser: store.appState.settings.loginUser
+                )
+            ) { pokemon in
+                PokemonInfoRow(
+                    model: pokemon,
+                    expanded: self.pokemonList.selectionState.expandingIndex == pokemon.id
+                )
+                .onTapGesture {
+                    withAnimation(
+                        .spring(response: 0.55, dampingFraction: 0.425, blendDuration: 0)
+                    ){
+                        self.store.dispatch(.toggleListSelection(index: pokemon.id))
+                    }
                 }
             }
         }
+        .overlay(
+            VStack {
+                Spacer()
+                if pokemonList.selectionState.panelPresented {
+                    if let panelIndex = pokemonList.selectionState.panelIndex,
+                       let pokemon = pokemonList.pokemons.first(where: { $0.id == panelIndex }) {
+                        PokemonInfoPanel(model: pokemon)
+                            .transition(.move(edge: .bottom))
+                    }
+                }
+            }
+            .edgesIgnoringSafeArea(.bottom)
+        )
     }
 }
 
