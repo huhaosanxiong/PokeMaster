@@ -38,6 +38,16 @@ struct LoginAppCommand: AppCommand {
     }
 }
 
+struct WriteUserAppCommand: AppCommand {
+    
+    let user: User
+    
+    func execute(in store: Store) {
+        
+        try? FileHelper.writeJSON(user, to: .documentDirectory, fileName: "user.json")
+    }
+}
+
 class SubscriptionToken {
     var cancellable: AnyCancellable?
     func unseal() { cancellable = nil }

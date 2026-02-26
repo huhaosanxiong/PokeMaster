@@ -37,7 +37,7 @@ struct SettingView: View {
             
             if settings.loginUser == nil {
                 // 未登录
-                Picker(selection: settingBinding.accountBehavior, label: Text("")) {
+                Picker(selection: settingBinding.checker.accountBehavior, label: Text("")) {
                     
                     ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self) {
                         Text($0.text)
@@ -45,21 +45,21 @@ struct SettingView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 
-                TextField("电子邮箱", text: settingBinding.email)
-                SecureField("密码", text: settingBinding.password)
+                TextField("电子邮箱", text: settingBinding.checker.email)
+                SecureField("密码", text: settingBinding.checker.password)
                 
-                if settings.accountBehavior == .register {
-                    SecureField("确认密码", text: settingBinding.verifyPassword)
+                if settings.checker.accountBehavior == .register {
+                    SecureField("确认密码", text: settingBinding.checker.verifyPassword)
                 }
                 
                 if settings.loginRequesting {
                     Text("登录中...")
                 }else {
-                    Button(settings.accountBehavior.text) {
+                    Button(settings.checker.accountBehavior.text) {
                         self.store.dispatch(
                             .login(
-                                email: self.settings.email,
-                                password: self.settings.password
+                                email: self.settings.checker.email,
+                                password: self.settings.checker.password
                             )
                         )
                     }
@@ -68,7 +68,7 @@ struct SettingView: View {
                 // 已登录
                 Text(settings.loginUser!.email)
                 Button("注销") {
-                    print("注销")
+                    self.store.dispatch(.logout)
                 }
             }
         }
